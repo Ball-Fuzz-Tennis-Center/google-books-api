@@ -19,10 +19,8 @@ const app = Vue.createApp({
 
                 if (this.startIndex == 0) {
                     this.booksFound = this.result.totalItems;
-                    console.log("Result total items: " + this.booksFound);
                 }
 
-                console.log("Start index: " + this.startIndex);
                 if (this.startIndex == 0) { this.prevEnabled = false; }
                 else if (this.startIndex != 0) { this.prevEnabled = true; }
                 
@@ -38,6 +36,8 @@ const app = Vue.createApp({
         resetResults() {
             this.startIndex = 0;
             this.result = null;
-        }
+        },
+
+        
     }
 });

@@ -8,11 +8,13 @@
     </head>
     <body>
 
-        <div id="app">
+        <div id="app" style="margin: 2%;">
             <form @submit.prevent="searchGoogleBooks">
                 <fieldset class="border">
 
-                    <legend class="w-auto">Google Books Search</legend>
+                    <legend class="w-auto">
+                        <h1>Google Books Search</h1>
+                    </legend>
 
                     <div class="row form-group">
                         <label for="txtSearch" class="col-sm-1 col-form-label">
@@ -33,11 +35,11 @@
                     </div>
 
                     <div class="row col-sm-5" v-if="result != null" style="margin: 2px;">
-                        Found {{ (booksFound != null)?booksFound:'' }} results...
+                        <h2>Found {{ (booksFound != null)?booksFound:'' }} results...</h2>
                     </div>
 
                     <div class="row" v-if="result != null">
-                        <div class="col-sm-4 text-center">
+                        <div class="col-sm-12 text-center">
 
                             <button type="submit" class="btn btn-light" style="margin: 2%;"
                             v-on:click="startIndex -= 20;"
@@ -55,7 +57,7 @@
                 </fieldset>
             </form>
 
-            <div id="mainDiv">
+            <div id="mainDiv" style="margin: 2%;">
                 <div class="row">
                     <book-display v-if="result != null" v-for="(book, index) in result.items" :key="book.id" :book="JSON.stringify(book)"></book-display>
                 </div>
